@@ -23,7 +23,6 @@ function setupIntialValues() {
   const amountInput = form.querySelector("#loan-amount");
   const yearsInput = form.querySelector("#loan-years");
   const rateInput = form.querySelector("#loan-rate");
-  console.log(amountInput, yearsInput, rateInput);
 
   // Put some default values in the inputs
   amountInput.value = 10000;
@@ -35,7 +34,7 @@ function setupIntialValues() {
     years: yearsInput,
     rate: rateInput,
   };
-  console.log("values: ", values);
+
   // Call a function to calculate the current monthly payment
   calculateMonthlyPayment(values);
 }
@@ -57,11 +56,6 @@ function calculateMonthlyPayment(values) {
   // The output should be a string that always has 2 decimal places.
   return String(monthlyPmt.toFixed(2));
 }
-
-console.log(
-  "Payment: ",
-  calculateMonthlyPayment({ amount: 10000, years: 2.5, rate: 3.2575 })
-);
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
