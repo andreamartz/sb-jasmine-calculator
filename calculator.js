@@ -31,9 +31,9 @@ function setupIntialValues() {
   rateInput.value = 3.2575;
 
   const values = {
-    amountInput: amountInput,
-    yearsInput: yearsInput,
-    rateInput: rateInput,
+    amount: amountInput,
+    years: yearsInput,
+    rate: rateInput,
   };
   console.log("values: ", values);
   // Call a function to calculate the current monthly payment
@@ -44,10 +44,24 @@ function setupIntialValues() {
 // Update the monthly payment
 function update() {}
 
-// Given an object of values (a value has amount, years and rate ),
-// calculate the monthly payment.  The output should be a string
-// that always has 2 decimal places.
-function calculateMonthlyPayment(values) {}
+function calculateMonthlyPayment(values) {
+  // Given an object of values (a value has amount, years and rate),
+  // calculate the monthly payment.
+  const { amount, years, rate } = values;
+  const monthlyRateDecimal = rate / 12 / 100;
+  const months = years * 12;
+
+  const monthlyPmtNumerator = amount * monthlyRateDecimal;
+  const monthlyPmtDenominator = 1 - Math.pow(1 + monthlyRateDecimal, -months);
+  const monthlyPmt = monthlyPmtNumerator / monthlyPmtDenominator;
+  // The output should be a string that always has 2 decimal places.
+  return String(monthlyPmt.toFixed(2));
+}
+
+console.log(
+  "Payment: ",
+  calculateMonthlyPayment({ amount: 10000, years: 2.5, rate: 3.2575 })
+);
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
