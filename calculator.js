@@ -20,7 +20,6 @@ function getCurrentUIValues() {
 function setupIntialValues() {
   // Get the inputs from the DOM.
   const form = document.getElementById("calc-form");
-  const formInputs = Array.from(form.querySelectorAll("input"));
   const amountInput = form.querySelector("#loan-amount");
   const yearsInput = form.querySelector("#loan-years");
   const rateInput = form.querySelector("#loan-rate");
