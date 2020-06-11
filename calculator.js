@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("calc-form");
   if (form) {
-    setupIntialValues();
+    setupInitialValues();
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       update();
@@ -17,7 +17,7 @@ function getCurrentUIValues() {
   };
 }
 
-function setupIntialValues() {
+function setupInitialValues() {
   // Get the inputs from the DOM.
   const amountUI = document.querySelector("#loan-amount");
   const yearsUI = document.querySelector("#loan-years");
