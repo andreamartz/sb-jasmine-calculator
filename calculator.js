@@ -45,12 +45,11 @@ function update() {
 
   // Update the monthly payment
   const payment = calculateMonthlyPayment(values);
-  return payment;
+  updateMonthly(payment);
 }
 
 function calculateMonthlyPayment(values) {
-  // Given an object of values (a value has amount, years and rate),
-  // calculate the monthly payment.
+  // Given an object of values (a value has amount, years and rate), calculate the monthly payment.
   const { amount, years, rate } = values;
   const monthlyRateDecimal = rate / 12 / 100;
   const months = years * 12;
@@ -62,6 +61,8 @@ function calculateMonthlyPayment(values) {
   return String(monthlyPmt.toFixed(2));
 }
 
-// Given a string representing the monthly payment value,
-// update the UI to show the value.
-function updateMonthly(monthly) {}
+function updateMonthly(monthly) {
+  // Given a string representing the monthly payment value, update the UI to show the value.
+  const paymentUI = document.querySelector("#monthly-payment");
+  paymentUI.innerText = `$${monthly}`;
+}
